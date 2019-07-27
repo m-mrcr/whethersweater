@@ -41,6 +41,12 @@ gem 'figaro'
 gem 'bcrypt'
 # geocode get latlong from string
 gem 'geocoder'
+# for serializers, from Netflix
+gem 'fast_jsonapi'
+# print different colors to the terminal
+gem 'colorize'
+# for New Relic integration
+gem 'newrelic_rpm'
 
 
 group :development, :test do
