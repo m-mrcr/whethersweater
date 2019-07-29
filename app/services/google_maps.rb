@@ -4,7 +4,7 @@ class GoogleMaps
     @location = location[:location]
   end
 
-  def results
+  def geocoding_response
     get_json('maps/api/geocode/json', address: @location)
   end
 
