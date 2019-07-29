@@ -1,14 +1,32 @@
 class GoogleGeocoding
-  attr_reader :location
-  def initialize(location)
-    @location = location[:location]
+  attr_reader :location, :origin, :destination
+  def initialize(input)
+    @location = input[:location]
+    @origin = input[:start]
+    @destination = input[:end]
+  end
+
+  def trip_duration
+    duration
   end
 
   def results
     get_json('maps/api/geocode/json', address: @location)
   end
 
+  def trip_results
+    params = {
+      origin: @origin,
+      destination: @destination
+    }
+    get_json('maps/api/directions/json', params)
+  end
+
   private
+
+  def duration
+    @duration ||= trip_results[:routes].first[:legs].first[:duration][:value]
+  end
 
   def get_json(uri, params = {})
     response = conn.get uri, params
