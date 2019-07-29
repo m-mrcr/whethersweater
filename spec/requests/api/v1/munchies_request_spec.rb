@@ -17,8 +17,8 @@ RSpec.describe 'Munchies' do
 
     it "should have three restaurants" do
       expect(@full_response[:restaurants].count).to eq(3)
-      # Address is a String
-      expect(@full_response[:restaurants].first.last.class).to eq(String)
+      expect(@full_response[:restaurants].first[:name].class).to eq(String)
+      expect(@full_response[:restaurants].first[:address].class).to eq(String)
     end
   end
 end

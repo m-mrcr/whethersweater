@@ -15,15 +15,19 @@ class MunchieFacade
   private
 
   def processed_restaurants
-    restaurants = {}
+    restaurants = []
     get_restaurants.each do |r|
       name = r[:name]
-      street = r[:location][:display_address].first
-      city = r[:location][:display_address].second
-      address = street + ", " + city
-      restaurants["#{name}"] = address
+      address = r[:location][:display_address]
+      restaurants << {name: name, address: format_address(address)}
     end
     restaurants
+  end
+
+  def format_address(input)
+    street = input.first
+    city = input.second
+    address = street + ", " + city
   end
 
   def get_restaurants

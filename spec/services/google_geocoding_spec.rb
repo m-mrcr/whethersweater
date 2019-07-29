@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'GoogleGeocoding' do
-  VCR.use_cassette('')
+  VCR.use_cassette('services')
   before(:each) do
     @location = 'denver, co'
     @origin = '3301 E 14th Ave, Denver, CO 80206, USA'
