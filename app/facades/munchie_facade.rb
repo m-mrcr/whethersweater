@@ -37,7 +37,7 @@ class MunchieFacade
       open_at: (Time.now + trip.trip_duration.seconds).to_i,
       limit: 3
     }
-    get_json('/v3/businesses/search', params)[:businesses]
+    yelp.get_json('/v3/businesses/search', params)[:businesses]
   end
 
   def trip
@@ -48,15 +48,7 @@ class MunchieFacade
     @trip ||= GoogleGeocoding.new(params)
   end
 
-  def get_json(uri, params = {})
-    response = conn.get uri, params
-    JSON.parse response.body, symbolize_names: true
-  end
-
-  def conn
-    Faraday.new('https://api.yelp.com') do |f|
-      f.adapter Faraday.default_adapter
-      f.headers['Authorization'] = "Bearer #{ENV['YELP_API_KEY']}"
-    end
+  def yelp
+    Yelp.new
   end
 end
