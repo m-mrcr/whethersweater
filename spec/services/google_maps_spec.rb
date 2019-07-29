@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe 'GoogleMaps' do
   before(:each) do
-    @location = 'denver, co'
-    @service = GoogleMaps.new({ location: @location })
+    # VCR.use_cassette('/services/google_maps_service') do
+      @location = 'denver, co'
+      @service = GoogleMaps.new({ location: @location })
+    # end
   end
 
   it "initializes with location" do

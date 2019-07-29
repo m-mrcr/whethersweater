@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'DarkSky' do
   before(:each) do
-    @coordinates = {latitude:'39.7392', longitude:'-104.9849'}
-    @service = DarkSky.new(@coordinates)
+    VCR.use_cassette('/services/dark_sky_service') do
+      @coordinates = {latitude:'39.7392', longitude:'-104.9849'}
+      @service = DarkSky.new(@coordinates)
+    end
   end
 
   it "initializes with coordinates" do
