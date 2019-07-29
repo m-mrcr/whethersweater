@@ -1,4 +1,4 @@
-class GoogleGeocoding
+class GoogleMaps
   attr_reader :location
   def initialize(location)
     @location = location[:location]

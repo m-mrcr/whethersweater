@@ -14,7 +14,7 @@ class ForecastFacade
 
   def google_geocoding
     params = { location: @location }
-    @google_geocoding ||= GoogleGeocoding.new(params)
+    @google_geocoding ||= GoogleMaps.new(params)
   end
 
   def google_results

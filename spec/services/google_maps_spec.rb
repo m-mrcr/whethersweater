@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'GoogleGeocoding' do
+describe 'GoogleMaps' do
   before(:each) do
     @location = 'denver, co'
-    @service = GoogleGeocoding.new({ location: @location })
+    @service = GoogleMaps.new({ location: @location })
   end
 
   it "initializes with location" do

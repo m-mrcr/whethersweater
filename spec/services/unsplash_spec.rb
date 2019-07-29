@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Unsplash' do
   before(:each) do
     @location = 'denver, co'
-    @service = Unsplash.new.search(@location)
+    @service = Unsplash.new.image(@location)
   end
 
   it "initializes with location" do
