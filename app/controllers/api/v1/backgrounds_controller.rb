@@ -1,6 +1,6 @@
 class Api::V1::BackgroundsController < ApplicationController
   def show
     unsplash = Unsplash.new
-    render json: unsplash.image(params[:location])
+    render json: {image: unsplash.image(params[:location])}
   end
 end
