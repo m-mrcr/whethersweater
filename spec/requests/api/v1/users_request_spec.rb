@@ -39,9 +39,7 @@ RSpec.describe 'User' do
           password_confirmation: 'password'
         }
       }
-
       post '/api/v1/users', params: @params
-
       @user = User.last
       @parsed_response = JSON.parse(response.body, symbolize_names: true)
     end
