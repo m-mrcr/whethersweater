@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.unsplash.com/photos/random?client_id=<UNSPLASH_API_KEY>&query=denver,co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.15.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Request-Method:
+      - "*"
+      Access-Control-Allow-Headers:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Link,X-Total,X-Per-Page,X-RateLimit-Limit,X-RateLimit-Remaining
+      Content-Type:
+      - application/json
+      X-Ratelimit-Limit:
+      - '50'
+      X-Ratelimit-Remaining:
+      - '49'
+      X-Request-Id:
+      - 28bac7d6-c64f-4ec7-92ae-eeef8a84920b
+      X-Runtime:
+      - '0.035061'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Via:
+      - 1.1 varnish
+      - 1.1 varnish
+      - 1.1 vegur
+      Content-Length:
+      - '3026'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Mon, 29 Jul 2019 23:37:35 GMT
+      Age:
+      - '0'
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-iad2139-IAD, cache-den19638-DEN
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1564443456.774587,VS0,VE106
+      Vary:
+      - Origin, Authorization
+    body:
+      encoding: UTF-8
+      string: '{"id":"lr5pneBV0qc","created_at":"2019-06-04T11:41:50-04:00","updated_at":"2019-07-14T01:13:18-04:00","width":4643,"height":3456,"color":"#0A0405","description":null,"alt_description":"brown
+        KPOF signage during daytime","urls":{"raw":"https://images.unsplash.com/photo-1559662884-a5a6dc463062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjgzODkxfQ","full":"https://images.unsplash.com/photo-1559662884-a5a6dc463062?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjgzODkxfQ","regular":"https://images.unsplash.com/photo-1559662884-a5a6dc463062?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjgzODkxfQ","small":"https://images.unsplash.com/photo-1559662884-a5a6dc463062?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjgzODkxfQ","thumb":"https://images.unsplash.com/photo-1559662884-a5a6dc463062?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjgzODkxfQ"},"links":{"self":"https://api.unsplash.com/photos/lr5pneBV0qc","html":"https://unsplash.com/photos/lr5pneBV0qc","download":"https://unsplash.com/photos/lr5pneBV0qc/download","download_location":"https://api.unsplash.com/photos/lr5pneBV0qc/download"},"categories":[],"sponsored":false,"sponsored_by":null,"sponsored_impressions_id":null,"likes":1,"liked_by_user":false,"current_user_collections":[],"user":{"id":"SJ2_XzVF3D0","updated_at":"2019-07-29T14:04:56-04:00","username":"ericmuhr","name":"Eric
+        Muhr","first_name":"Eric","last_name":"Muhr","twitter_username":"ericmuhr","portfolio_url":"https://www.ericmuhr.club/","bio":"I
+        work in the town where I was born. I\u2019m interested in poetry, the outdoors,
+        and food. Prints available at ericmuhr.club","location":"Newberg, Oregon","links":{"self":"https://api.unsplash.com/users/ericmuhr","html":"https://unsplash.com/@ericmuhr","photos":"https://api.unsplash.com/users/ericmuhr/photos","likes":"https://api.unsplash.com/users/ericmuhr/likes","portfolio":"https://api.unsplash.com/users/ericmuhr/portfolio","following":"https://api.unsplash.com/users/ericmuhr/following","followers":"https://api.unsplash.com/users/ericmuhr/followers"},"profile_image":{"small":"https://images.unsplash.com/profile-1523836074263-bfc6e0133db0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32","medium":"https://images.unsplash.com/profile-1523836074263-bfc6e0133db0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64","large":"https://images.unsplash.com/profile-1523836074263-bfc6e0133db0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128"},"instagram_username":"ericmuhr","total_collections":6,"total_likes":1244,"total_photos":549,"accepted_tos":true},"exif":{"make":"Canon","model":"Canon
+        EOS REBEL T5i","exposure_time":"1/160","aperture":"8.0","focal_length":"16.0","iso":100},"location":{"title":"Denver,
+        CO, United States","name":null,"city":"Denver, CO","country":"United States","position":{"latitude":null,"longitude":null}},"views":3777,"downloads":12}'
+    http_version: 
+  recorded_at: Mon, 29 Jul 2019 23:37:35 GMT
+recorded_with: VCR 5.0.0

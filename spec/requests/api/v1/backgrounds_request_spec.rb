@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Forecast' do
-  VCR.use_cassette('requests/api/v1/background_response') do
     before(:each) do
-      get '/api/v1/background?location=denver,co'
+      VCR.use_cassette('requests/api/v1/background_response') do
+        get '/api/v1/background?location=denver,co'
+      end
     end
 
     it "response is successful" do
@@ -14,4 +15,3 @@ RSpec.describe 'Forecast' do
       expect(response.body.class).to eq(String)
     end
   end
-end

@@ -1,4 +1,4 @@
-class GoogleGeocoding
+class GoogleMaps
   attr_reader :location, :origin, :destination
   def initialize(input)
     @location = input[:location]
@@ -6,11 +6,7 @@ class GoogleGeocoding
     @destination = input[:end]
   end
 
-  def trip_duration
-    duration
-  end
-
-  def results
+  def geocoding_response
     get_json('maps/api/geocode/json', address: @location)
   end
 

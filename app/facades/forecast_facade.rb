@@ -5,24 +5,24 @@ class ForecastFacade
 
   def full_response
     parameters = {
-      google_results: google_results,
+      location_data: geocoding,
       forecast_data: forecast_data
     }
   end
 
   private
 
-  def google_geocoding
+  def get_geocoding
     params = { location: @location }
-    @google_geocoding ||= GoogleGeocoding.new(params)
+    @get_geocoding ||= GoogleMaps.new(params)
   end
 
-  def google_results
-    @google_results ||= google_geocoding.results
+  def geocoding
+    @geocoding ||= get_geocoding.geocoding_response
   end
 
   def get_coordinates
-    @coordinates ||= google_results[:results].first[:geometry][:location]
+    @coordinates ||= geocoding[:results].first[:geometry][:location]
   end
 
   def dark_sky
