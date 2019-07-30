@@ -34,7 +34,7 @@ class MunchieFacade
     params = {
       term: @food,
       location: @end,
-      open_at: (Time.now + trip.trip_duration.seconds).to_i,
+      open_at: (Time.now + trip.duration.seconds).to_i,
       limit: 3
     }
     yelp.get_json('/v3/businesses/search', params)[:businesses]
@@ -45,7 +45,7 @@ class MunchieFacade
       start: @start,
       end: @end
     }
-    @trip ||= GoogleGeocoding.new(params)
+    @trip ||= GoogleMaps.new(params)
   end
 
   def yelp

@@ -3,9 +3,13 @@ require 'rails_helper'
 describe 'GoogleMaps' do
   before(:each) do
     @location = 'denver, co'
-    @service = GoogleMaps.new({ location: @location })
+    @origin = '3301 E 14th Ave, Denver, CO 80206, USA'
+    @destination = '1331 17th St, Denver, CO 80202, USA'
     VCR.use_cassette('/services/google_maps_service') do
-      @geocoding_response = @service.geocoding_response
+      @service = GoogleMaps.new({ location: @location,
+                                  start: @origin,
+                                  end: @destination
+                                })
     end
   end
 
@@ -14,10 +18,21 @@ describe 'GoogleMaps' do
   end
 
   it "#results returns formatted location and latitude / longitude" do
+    result = @service.geocoding_response
 
-    expect(@geocoding_response).to have_key(:results)
-    expect(@geocoding_response[:results].first).to have_key(:formatted_address)
-    expect(@geocoding_response[:results].first[:geometry][:location]).to have_key(:lat)
-    expect(@geocoding_response[:results].first[:geometry][:location]).to have_key(:lng)
+    expect(result).to have_key(:results)
+    expect(result[:results].first).to have_key(:formatted_address)
+    expect(result[:results].first[:geometry][:location]).to have_key(:lat)
+    expect(result[:results].first[:geometry][:location]).to have_key(:lng)
+  end
+
+  it "#trip_results returns information about trip" do
+    result = @service.trip_results
+    start_point = result[:routes].first[:legs].first[:start_address]
+    end_point = result[:routes].first[:legs].first[:end_address]
+
+    expect(result).to have_key(:routes)
+    expect(start_point).to eq(@origin)
+    expect(end_point).to eq(@destination)
   end
 end

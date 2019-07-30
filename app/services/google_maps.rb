@@ -18,11 +18,11 @@ class GoogleMaps
     get_json('maps/api/directions/json', params)
   end
 
-  private
-
   def duration
     @duration ||= trip_results[:routes].first[:legs].first[:duration][:value]
   end
+
+  private
 
   def get_json(uri, params = {})
     response = conn.get uri, params
