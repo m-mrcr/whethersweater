@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Forecast' do
     before(:each) do
       VCR.use_cassette('requests/api/v1/background_response') do
-        get '/api/v1/background?location=denver,co'
+        get '/api/v1/backgrounds?location=denver,co'
       end
     end
 
