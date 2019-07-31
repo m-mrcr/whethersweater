@@ -10,16 +10,16 @@ class GoogleMaps
     get_json('maps/api/geocode/json', address: @location)
   end
 
-  def trip_results
+  def directions_results
     params = {
-      origin: @origin,
-      destination: @destination
-    }
+                origin: @origin,
+                destination: @destination
+             }
     get_json('maps/api/directions/json', params)
   end
 
   def duration
-    @duration ||= trip_results[:routes].first[:legs].first[:duration][:value]
+    @duration ||= directions_results[:routes].first[:legs].first[:duration][:value]
   end
 
   private
