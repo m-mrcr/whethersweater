@@ -13,13 +13,13 @@ RSpec.describe 'Forecast' do
   end
 
   it "knows about city" do
-    address = @full_response[:location_data][:results].first[:formatted_address]
+    address = @full_response[:location]
 
     expect(address).to eq("Denver, CO, USA")
   end
 
   it "has current temperature" do
-    current_temp = @full_response[:forecast_data][:currently][:temperature]
+    current_temp = @full_response[:currently][:temperature]
 
     expect(current_temp.class).to eq(Float)
   end
