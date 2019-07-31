@@ -4,11 +4,9 @@ RSpec.describe 'User' do
   describe "when a user is created" do
     before(:each) do
       @params = {
-        user: {
           email: 'whatever@example.com',
           password: 'password',
           password_confirmation: 'password'
-        }
       }
 
       post '/api/v1/users', params: @params
@@ -26,7 +24,7 @@ RSpec.describe 'User' do
     end
 
     it "has attributes" do
-      expect(@user.email).to eq(@params[:user][:email])
+      expect(@user.email).to eq(@params[:email])
       expect(@user.api_key).to eq(@parsed_response[:api_key])
     end
   end
