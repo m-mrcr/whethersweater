@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 31 Jul 2019 02:37:12 GMT
+      - Wed, 31 Jul 2019 05:30:30 GMT
       Expires:
-      - Wed, 31 Jul 2019 02:39:12 GMT
+      - Wed, 31 Jul 2019 05:32:30 GMT
       Cache-Control:
       - public, max-age=120
       Vary:
@@ -37,7 +37,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Server-Timing:
-      - gfet4t7; dur=244
+      - gfet4t7; dur=67
       Alt-Svc:
       - quic=":443"; ma=2592000; v="46,43,39"
     body:
@@ -73,27 +73,27 @@ http_interactions:
       Ratelimit-Dailylimit:
       - '5000'
       Ratelimit-Remaining:
-      - '4979'
+      - '4976'
       Ratelimit-Resettime:
       - '2019-08-01T00:00:00+00:00'
       X-Zipkin-Id:
-      - 9b5cbad450374759
+      - 2dbec1ee46b51874
       X-B3-Sampled:
       - '0'
       X-Proxied:
-      - 10-69-253-36-uswest2cprod
+      - 10-69-222-31-uswest2cprod
       Transfer-Encoding:
       - chunked
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 31 Jul 2019 02:37:12 GMT
+      - Wed, 31 Jul 2019 05:30:31 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-sjc3130-SJC
+      - cache-sjc3132-SJC
       X-Cache:
       - MISS
       X-Cache-Hits:
