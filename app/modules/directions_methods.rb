@@ -1,4 +1,4 @@
-module DirectionMethods
+module DirectionsMethods
   private
 
   def arrival_time
