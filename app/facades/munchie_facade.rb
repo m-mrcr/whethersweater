@@ -1,5 +1,5 @@
 class MunchieFacade
-  include DirectionMethods
+  include DirectionsMethods
 
   attr_reader :destination
 
