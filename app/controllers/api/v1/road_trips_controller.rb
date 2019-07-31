@@ -4,6 +4,7 @@ class Api::V1::RoadTripsController < ApplicationController
     return unauthorized('API key must be provided') unless api_key
     user = User.find_by(api_key: api_key)
     if user
+      render_response
     else
       unauthorized('Invalid API key')
     end
@@ -12,11 +13,11 @@ class Api::V1::RoadTripsController < ApplicationController
   private
 
   def render_response
-    facade = RoadTripFacade.new(user_trip_parameters)
-    render json: RoadTripSerializer(facade).full_response
+    facade = RoadTripFacade.new(directions_parameters)
+    render json: RoadTripSerializer.new(facade).full_response
   end
 
-  def direction_parameters
+  def directions_parameters
     origin = params[:origin]
     destination = params[:destination]
     { origin: origin, destination: destination }
