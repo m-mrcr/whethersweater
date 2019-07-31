@@ -42,10 +42,6 @@ RSpec.describe 'User' do
       @parsed_response = JSON.parse(response.body, symbolize_names: true)
     end
 
-    it "doesn't save user attributes" do
-      expect(User.all).to eq([])
-    end
-
     it "throws an error message" do
       expect(@parsed_response).to have_key(:error)
     end
