@@ -26,8 +26,8 @@ describe 'GoogleMaps' do
     expect(result[:results].first[:geometry][:location]).to have_key(:lng)
   end
 
-  it "#trip_results returns information about trip" do
-    result = @service.trip_results
+  it "#directions_results returns information about trip" do
+    result = @service.directions_results
     start_point = result[:routes].first[:legs].first[:start_address]
     end_point = result[:routes].first[:legs].first[:end_address]
 
