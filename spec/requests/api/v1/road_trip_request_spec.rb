@@ -9,10 +9,6 @@ RSpec.describe 'Road Trip' do
         "destination": "Pueblo,CO",
         "api_key": @api_key
       }
-      @headers = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
       VCR.use_cassette('requests/api/v1/road_trip_response') do
         post '/api/v1/road_trip', params: @params
         @full_response = JSON.parse(response.body, symbolize_names: true)
