@@ -1,16 +1,16 @@
-class GoogleMaps
+class GoogleMaps < Base
   attr_reader :location, :origin, :destination
   def initialize(input)
     @location = input[:location]
-    @origin = input[:start]
-    @destination = input[:end]
+    @origin = input[:origin]
+    @destination = input[:destination]
   end
 
   def geocoding_response
     get_json('maps/api/geocode/json', address: @location)
   end
 
-  def directions_results
+  def directions_response
     params = {
                 origin: @origin,
                 destination: @destination
@@ -18,16 +18,7 @@ class GoogleMaps
     get_json('maps/api/directions/json', params)
   end
 
-  def duration
-    @duration ||= directions_results[:routes].first[:legs].first[:duration][:value]
-  end
-
   private
-
-  def get_json(uri, params = {})
-    response = conn.get uri, params
-    JSON.parse response.body, symbolize_names: true
-  end
 
   def conn
     Faraday.new('https://maps.googleapis.com') do |f|
