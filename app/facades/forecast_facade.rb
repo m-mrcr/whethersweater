@@ -5,9 +5,9 @@ class ForecastFacade
   end
 
   def full_response
-    parameters = {
+    {
       location_data: geocoding,
-      forecast_data: forecast_data
+      forecast_data: formatted_forecast
     }
   end
 end
