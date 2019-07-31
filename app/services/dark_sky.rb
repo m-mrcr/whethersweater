@@ -1,4 +1,4 @@
-class DarkSky
+class DarkSky < Base
   attr_reader :latitude, :longitude
   def initialize(coordinates)
     @latitude = coordinates[:lat]
@@ -10,11 +10,6 @@ class DarkSky
   end
 
   private
-
-  def get_json(uri, params = {})
-    response = conn.get uri, params
-    JSON.parse response.body, symbolize_names: true
-  end
 
   def conn
     Faraday.new('https://api.darksky.net') do |f|

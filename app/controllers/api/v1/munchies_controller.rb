@@ -1,6 +1,6 @@
 class Api::V1::MunchiesController < ApplicationController
   def show
-    munchies = MunchieFacade.new(params)
-    render json: munchies.full_response
+    facade = MunchieFacade.new(params)
+    render json: MunchieSerializer.new(facade).full_response
   end
 end
